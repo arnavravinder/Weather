@@ -1,22 +1,32 @@
-# ☀️ Weather App
+# Weather App
 
-## 🌟 Overview
-A simple and elegant weather app that displays the current weather conditions for a selected location. Users can search for a city and get the weather details.
+A simple weather app that allows users to check weather conditions based on city names.
 
-## 🛠️ Tech Stack
+## Features
+
+- Dark/Light mode toggle.
+- Real-time weather data using OpenWeatherMap API.
+- 3D tilt effect on the main container.
+- Scroll animations using AOS library.
+
+## Usage
+
+1. Enter the name of a city in the input field.
+2. Click on the "Get Weather" button to retrieve weather information.
+3. Toggle between dark and light modes for different visual preferences.
+
+## Built With
+
 - HTML
 - CSS
 - JavaScript
-- OpenWeatherMap API
 
-## 🚀 How to Use
-1. Open `index.html` in your browser.
-2. Enter a city name and click "Get Weather" to see the current weather conditions.
+## Credits
 
-## 🌐 API Key
-- Sign up for a free API key at [OpenWeatherMap](https://openweathermap.org/api)
-- Replace `your_api_key_here` in `script.js` with your API key.
+- AOS Library: [AOS](https://michalsnik.github.io/aos/)
+- Vanilla Tilt: [VanillaTilt](https://micku7zu.github.io/vanilla-tilt.js/)
+- OpenWeatherMap API: [OpenWeatherMap](https://openweathermap.org/api)
 
 ---
 
-Made with ❤️ by Arnav
+Made with 💖 by Arnav

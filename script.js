@@ -17,20 +17,37 @@ document.addEventListener('DOMContentLoaded', () => {
 async function getWeather() {
     const city = document.getElementById('city').value;
     const apiKey = 'your_api_key_here';
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-    const data = await response.json();
+    const loader = document.getElementById('loader');
+    const weatherDiv = document.getElementById('weather');
     
-    if (data.cod !== 200) {
-        document.getElementById('weather').innerText = 'Error fetching weather data';
-    } else {
-        const weatherData = `
-            <h2>Weather in ${data.name}</h2>
-            <p>${data.weather[0].description}</p>
-            <p>Temperature: ${data.main.temp}°C</p>
-            <p>Humidity: ${data.main.humidity}%</p>
-            <p>Wind Speed: ${data.wind.speed} m/s</p>
-        `;
-        document.getElementById('weather').innerHTML = weatherData;
+    loader.style.display = 'block';
+    weatherDiv.innerHTML = '';
+    
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+        
+        if (data.cod !== 200) {
+            weatherDiv.innerText = 'Error fetching weather data';
+        } else {
+            const weatherData = `
+                <h2>Weather in ${data.name}</h2>
+                <p>${data.weather[0].description}</p>
+                <p>Temperature: ${data.main.temp}°C</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+                <p>Wind Speed: ${data.wind.speed} m/s</p>
+                <div class="weather-detail">
+                    <p><span>Pressure</span>${data.main.pressure} hPa</p>
+                    <p><span>Visibility</span>${data.visibility} m</p>
+                </div>
+                <img class="weather-icon" src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather icon">
+            `;
+            weatherDiv.innerHTML = weatherData;
+        }
+    } catch (error) {
+        weatherDiv.innerText = 'Error fetching weather data';
+    } finally {
+        loader.style.display = 'none';
     }
 }
 
