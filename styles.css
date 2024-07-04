@@ -1,11 +1,21 @@
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+body.light-mode {
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    color: #000;
+}
+
+body.dark-mode {
+    background: linear-gradient(to right, #434343, #000000);
     color: #fff;
 }
 
@@ -15,6 +25,11 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.5s;
+}
+
+body.light-mode .container {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 h1 {
@@ -30,6 +45,12 @@ input {
     border: none;
     border-radius: 5px;
     width: 200px;
+    transition: background 0.5s;
+}
+
+body.light-mode input {
+    background: #fff;
+    color: #000;
 }
 
 button {
@@ -37,16 +58,43 @@ button {
     margin-left: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #ff5e62;
+    background: linear-gradient(to right, #ff5e62, #ff9966);
     color: #fff;
     cursor: pointer;
+    transition: background 0.5s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #ff1e56;
+    background: linear-gradient(to right, #ff1e56, #ff5e62);
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(1.05);
 }
 
 #weather {
     margin-top: 20px;
     font-size: 18px;
+}
+
+.toggle-switch {
+    margin-top: 20px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-switch label {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ff5e62;
+    color: #fff;
+    transition: background 0.5s;
+}
+
+.toggle-switch input:checked + label {
+    background-color: #ff9966;
 }

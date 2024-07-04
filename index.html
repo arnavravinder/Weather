@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" data-tilt>
         <h1>Weather App</h1>
-        <input type="text" id="city" placeholder="Enter city">
-        <button onclick="getWeather()">Get Weather</button>
-        <div id="weather"></div>
+        <div class="search-box">
+            <input type="text" id="city" placeholder="Enter city">
+            <button onclick="getWeather()">Get Weather</button>
+        </div>
+        <div id="weather" data-aos="fade-up"></div>
     </div>
+    <div class="toggle-switch">
+        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+        <label for="darkModeToggle">Dark Mode</label>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
